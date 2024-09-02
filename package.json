@@ -2,7 +2,7 @@
   "name": "palette-api",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app.ts",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -13,5 +13,9 @@
   "bugs": {
     "url": "https://github.com/GRJorge/palette-api/issues"
   },
-  "homepage": "https://github.com/GRJorge/palette-api#readme"
+  "homepage": "https://github.com/GRJorge/palette-api#readme",
+  "dependencies": {
+    "@types/express": "^4.17.21",
+    "express": "^4.19.2"
+  }
 }
