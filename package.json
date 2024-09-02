@@ -1,0 +1,17 @@
+{
+  "name": "palette-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GRJorge/palette-api.git"
+  },
+  "author": "Jorge Garcia R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GRJorge/palette-api/issues"
+  },
+  "homepage": "https://github.com/GRJorge/palette-api#readme"
+}
