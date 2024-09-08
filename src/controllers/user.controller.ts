@@ -23,28 +23,23 @@ class UserController {
     }
     async editUser(req: Request, res: Response) {
         const { id, username, password, newPassword } = req.body;
-        let next = true;
 
         if (password && newPassword) {
-            console.log('Comprobar contraseña');
-            next = false;
+            if (!(await UserService.comparePassword(id, password))) {
+                return res.status(400).json({ msg: 'Incorrect password' });
+            }
         }
 
-        if (next) {
-            try {
-                const editedUserResult = await UserService.editUser(id, username, newPassword);
+        try {
+            const editedUserResult = await UserService.editUser(id, username, newPassword);
 
-                res.send(editedUserResult);
-            } catch (error: any) {
-                console.log(error);
-                if (error.name === 'CastError' && error.kind === 'ObjectId') {
-                    res.status(400).json({ msg: 'User not founded', error });
-                } else {
-                    res.status(500).json(error);
-                }
+            res.send(editedUserResult);
+        } catch (error: any) {
+            if (error.name === 'CastError' && error.kind === 'ObjectId') {
+                res.status(400).json({ msg: 'User not founded', error });
+            } else {
+                res.status(500).json(error);
             }
-        } else {
-            res.status(400).json({ msg: 'Incorrect Password' });
         }
     }
 }
