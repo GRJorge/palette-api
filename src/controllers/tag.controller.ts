@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import tag from '../interfaces/tag.interface';
 import tagService from '../services/tag.service';
+import errorService from '../services/error.service';
 
 class TagController {
     async newTag(req: Request, res: Response) {
@@ -12,13 +13,7 @@ class TagController {
 
             res.status(201).json(newTagResult);
         } catch (error: any) {
-            let status = 500;
-
-            if (error.code === 11000 || error.name === 'ValidationError') {
-                status = 400;
-            }
-
-            res.status(status).json(error);
+            errorService.validationError(error, res);
         }
     }
 }
