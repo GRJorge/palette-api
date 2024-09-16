@@ -12,3 +12,13 @@ export default interface palette {
     names: [string];
     tags: [Types.ObjectId];
 }
+
+export interface colors {
+    dark: string;
+    light: string;
+    primary: string;
+    secondary: string;
+    alert: string;
+    warning: string;
+    success: string;
+}
