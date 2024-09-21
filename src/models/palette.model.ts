@@ -25,7 +25,6 @@ const schema = new Schema<palette>(
         alert: { type: colorSchema, required: true },
         warning: { type: colorSchema, required: true },
         success: { type: colorSchema, required: true },
-        names: { type: [String], required: true },
         tags: [{ type: Types.ObjectId, ref: 'Tag' }],
     },
     {
